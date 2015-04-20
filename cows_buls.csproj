@@ -56,6 +56,8 @@
     <Compile Include="InputReaders\ConsoleReader.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IInputReader.cs" />
+    <Compile Include="Interfaces\IOutputWriter.cs" />
+    <Compile Include="OutputWriters\ConsoleWriter.cs" />
     <Compile Include="PlayerInfo.cs" />
   </ItemGroup>
   <ItemGroup />

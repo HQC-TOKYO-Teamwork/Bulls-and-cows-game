@@ -26,6 +26,7 @@ namespace BullsAndCows
         {
             this.InputReader = inputReader;
             this.OutputWriter = outputWriter;
+            this.randomGenerator = new Random();
         }
 
         public StringBuilder Output { get; private set; }
@@ -36,14 +37,13 @@ namespace BullsAndCows
 
         public void Play()
         {
-            Console.WriteLine(
+            this.OutputWriter.WriteOutput(
                 "Welcome to “Bulls and Cows” game." +
                 "Please try to guess my secret 4-digit number." +
                 "Use 'top' to view the top scoreboard, 'restart'" +
                 "to start a new game and 'help'" +
                 " to cheat and 'exit' to quit the game.");
-            Initialize();
-            GenerateNumberForGuess();
+            this.Initialize();
 
             while (!isGuessed)
             {
@@ -80,32 +80,24 @@ namespace BullsAndCows
 
         private void Initialize()
         {
-            randomGenerator = new Random();
-            count2 = 0;
-            count1 = 0;
-            isGuessed = false;
-            helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
+            this.count2 = 0;
+            this.count1 = 0;
+            this.isGuessed = false;
+            this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
+            this.numberForGuessString = this.GenerateNumberForGuess();
             this.Output = new StringBuilder();
         }
 
-        private void GenerateNumberForGuess()
+        private string GenerateNumberForGuess()
         {
-            long numberForGuess = randomGenerator.Next(0, 9999);
-            numberForGuessString = numberForGuess.ToString();
-            AddZeroes();
-        }
+            StringBuilder digits = new StringBuilder();
 
-        private void AddZeroes()
-        {
-            int zeroesForAdd = 4 - numberForGuessString.Length;
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < zeroesForAdd; i++)
+            for (int i = 0; i < 4; i++)
             {
-                sb.Append("0");
+                int digit = randomGenerator.Next(0, 10);
+                digits.Append(digit);
             }
-            sb.Append(numberForGuessString);
-            numberForGuessString = sb.ToString();
+            return digits.ToString();
         }
 
         private void CreateNewGame()
