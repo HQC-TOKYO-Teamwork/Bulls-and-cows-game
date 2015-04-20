@@ -13,27 +13,30 @@ namespace BullsAndCows
     public class GameEngine
     {
         //Change to ScoreBoard class instance
-        //private List<PlayerInfo> klasirane =
-        //    new List<PlayerInfo>();
         private bool isGuessed;
-        private int count1;
         private int count2;
-        private string numberForGuessString;
         private char[] helpingNumber;
         private Random randomGenerator;
 
         public GameEngine(IInputReader inputReader, IOutputWriter outputWriter)
         {
+            this.ScoreBoard = new Scoreboard(this);
             this.InputReader = inputReader;
             this.OutputWriter = outputWriter;
             this.randomGenerator = new Random();
         }
 
+        public Scoreboard ScoreBoard { get; private set; }
+
+        public int CheatsCount { get; private set; }
+
+        public string NumberForGuess { get; private set; }
+
         public StringBuilder Output { get; private set; }
 
-        private IInputReader InputReader { get; set; }
+        public IInputReader InputReader { get; private set; }
 
-        private IOutputWriter OutputWriter { get; set; }
+        public IOutputWriter OutputWriter { get; private set; }
 
         public void Play()
         {
@@ -81,10 +84,10 @@ namespace BullsAndCows
         private void Initialize()
         {
             this.count2 = 0;
-            this.count1 = 0;
+            this.CheatsCount = 0;
             this.isGuessed = false;
             this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
-            this.numberForGuessString = this.GenerateNumberForGuess();
+            this.NumberForGuess = this.GenerateNumberForGuess();
             this.Output = new StringBuilder();
         }
 

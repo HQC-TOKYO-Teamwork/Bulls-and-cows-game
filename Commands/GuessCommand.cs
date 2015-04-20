@@ -17,7 +17,7 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            Console.WriteLine(this.Guess);
+            throw new NotImplementedException();
         }
     }
 }

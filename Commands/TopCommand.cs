@@ -14,7 +14,7 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            this.Engine.ScoreBoard.PrintScoreboard();
         }
     }
 }

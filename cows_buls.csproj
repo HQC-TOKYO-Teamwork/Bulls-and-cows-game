@@ -59,6 +59,7 @@
     <Compile Include="Interfaces\IOutputWriter.cs" />
     <Compile Include="OutputWriters\ConsoleWriter.cs" />
     <Compile Include="PlayerInfo.cs" />
+    <Compile Include="Scoreboard.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
