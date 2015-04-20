@@ -13,8 +13,7 @@ namespace BullsAndCows
     public class GameEngine
     {
         //Change to ScoreBoard class instance
-        private bool isGuessed;
-        private int count2;
+        private int guessesCount;
         private char[] helpingNumber;
         private Random randomGenerator;
 
@@ -25,6 +24,8 @@ namespace BullsAndCows
             this.OutputWriter = outputWriter;
             this.randomGenerator = new Random();
         }
+
+        public bool IsGuessed { get; set; }
 
         public Scoreboard ScoreBoard { get; private set; }
 
@@ -48,15 +49,15 @@ namespace BullsAndCows
                 " to cheat and 'exit' to quit the game.");
             this.Initialize();
 
-            while (!isGuessed)
+            while (!this.IsGuessed)
             {
                 Console.Write("Enter your guess or command: ");
                 this.ExecuteCommandLoop();           
             }
 
-            //AddPlayerToScoreboard(count2);
-            //PrintScoreboard();
-            CreateNewGame();
+            this.ScoreBoard.AddPlayerToScoreboard(this.guessesCount);
+            this.ScoreBoard.PrintScoreboard();
+            this.CreateNewGame();
         }
 
         protected virtual void ExecuteCommandLoop()
@@ -83,9 +84,9 @@ namespace BullsAndCows
 
         private void Initialize()
         {
-            this.count2 = 0;
+            this.guessesCount = 0;
             this.CheatsCount = 0;
-            this.isGuessed = false;
+            this.IsGuessed = false;
             this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
             this.NumberForGuess = this.GenerateNumberForGuess();
             this.Output = new StringBuilder();
