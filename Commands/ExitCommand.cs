@@ -14,7 +14,8 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            Console.WriteLine("Exit executed!");
+            this.Engine.OutputWriter.WriteOutput("Good bye!");
+            Environment.Exit(1);
         }
     }
 }
