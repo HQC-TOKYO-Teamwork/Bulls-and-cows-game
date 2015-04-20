@@ -42,10 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AbstractCommand.cs" />
+    <Compile Include="Commands\Exceptions\CommandException.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\Factories\CommandFactory.cs" />
+    <Compile Include="Commands\GuessCommand.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\RestartCommand.cs" />
+    <Compile Include="Commands\TopScoresCommand.cs" />
     <Compile Include="cows_buls.cs" />
     <Compile Include="BullsAndCowsTest.cs" />
+    <Compile Include="GameEngine.cs" />
+    <Compile Include="InputReaders\ConsoleReader.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\IInputReader.cs" />
     <Compile Include="PlayerInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,9 +1,16 @@
 ﻿
+using System.Runtime.InteropServices;
+using BullsAndCows;
+using BullsAndCows.InputReaders;
+using BullsAndCows.Interfaces;
+
 public class BullsAndCowsTest
 {
     static void Main(string[] args)
     {
-		cows_buls.Play();
+        IInputReader inputReader = new ConsoleReader();
+        GameEngine engine = new GameEngine(inputReader);
+        engine.Play();
     }
 }
 
