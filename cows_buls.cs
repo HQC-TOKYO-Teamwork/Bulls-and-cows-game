@@ -147,11 +147,5 @@ public class cows_buls
     //    Console.Write(".");
     //    Console.WriteLine();
     //}
-
-    //private static void CreateNewGame()
-    //{
-    //    Play();
-    //}
-
     //
 }
