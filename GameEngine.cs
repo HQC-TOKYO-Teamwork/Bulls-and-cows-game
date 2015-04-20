@@ -22,14 +22,17 @@ namespace BullsAndCows
         private char[] helpingNumber;
         private Random randomGenerator;
 
-        public GameEngine(IInputReader inputReader)
+        public GameEngine(IInputReader inputReader, IOutputWriter outputWriter)
         {
             this.InputReader = inputReader;
+            this.OutputWriter = outputWriter;
         }
 
         public StringBuilder Output { get; private set; }
 
         private IInputReader InputReader { get; set; }
+
+        private IOutputWriter OutputWriter { get; set; }
 
         public void Play()
         {
@@ -72,7 +75,7 @@ namespace BullsAndCows
                 this.Output.AppendLine("Invalid operation");
             }
 
-            Console.Write(this.Output);
+            this.OutputWriter.WriteOutput(this.Output.ToString());
         }
 
         private void Initialize()

@@ -49,7 +49,7 @@
     <Compile Include="Commands\GuessCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\RestartCommand.cs" />
-    <Compile Include="Commands\TopScoresCommand.cs" />
+    <Compile Include="Commands\TopCommand.cs" />
     <Compile Include="cows_buls.cs" />
     <Compile Include="BullsAndCowsTest.cs" />
     <Compile Include="GameEngine.cs" />

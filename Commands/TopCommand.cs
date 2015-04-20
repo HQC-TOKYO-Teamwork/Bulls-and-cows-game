@@ -5,9 +5,9 @@ using System.Text;
 
 namespace BullsAndCows.Commands
 {
-    public class TopScoresCommand : AbstractCommand
+    public class TopCommand : AbstractCommand
     {
-        public TopScoresCommand(GameEngine engine)
+        public TopCommand(GameEngine engine)
             :base(engine)
         {
         }
