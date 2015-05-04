@@ -13,10 +13,11 @@ namespace BullsAndCows
 {
     public class GameEngine
     {
-        //Change to ScoreBoard class instance
+        //Change to ScoreBoard class instance   
         internal int guessesCount;
-        private char[] helpingNumber;
-        private Random randomGenerator;
+        internal char[] digitForReveal;
+        internal char[] helpingNumber;
+        internal Random randomGenerator;
 
         public GameEngine(IInputReader inputReader, IOutputWriter outputWriter)
         {
@@ -30,7 +31,8 @@ namespace BullsAndCows
 
         public Scoreboard ScoreBoard { get; private set; }
 
-        public int CheatsCount { get; private set; }
+        public int CheatsCount { get; set; }
+
 
         public string NumberForGuess { get; private set; }
 
@@ -97,6 +99,7 @@ namespace BullsAndCows
                 int digit = randomGenerator.Next(0, 10);
                 digits.Append(digit);
             }
+            this.digitForReveal = digits.ToString().ToCharArray();
             return digits.ToString();
         }
 

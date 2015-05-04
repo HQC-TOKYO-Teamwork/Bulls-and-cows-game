@@ -28,15 +28,20 @@
 
         public override void Execute()
         {
-            this.GameEngine.guessesCount++;
+            ++this.GameEngine.guessesCount;
+            Console.WriteLine(++this.GameEngine.guessesCount);
+            Console.WriteLine(this.GameEngine.guessesCount);
             this.ProcessGuessedNumber(this.GuessString, this.NumberForGuess);
+           
         }
 
         private void ProcessGuessedNumber(string guess, string answer)
         {
             if (this.GuessNumberIsForGuess(guess, answer))
             {
-                Engine.IsGuessed = true;
+                this.GameEngine.IsGuessed = true;
+                PrintCongratulationMessage();
+                this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
             }
             else
             {
