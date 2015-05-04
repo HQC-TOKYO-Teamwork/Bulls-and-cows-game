@@ -7,6 +7,7 @@ using BullsAndCows.Commands.Exceptions;
 using BullsAndCows.Commands.Factories;
 using BullsAndCows.InputReaders;
 using BullsAndCows.Interfaces;
+using BullsAndCows.Constants;
 
 namespace BullsAndCows
 {
@@ -41,17 +42,12 @@ namespace BullsAndCows
 
         public void Play()
         {
-            this.OutputWriter.WriteOutput(
-                "Welcome to “Bulls and Cows” game." +
-                "Please try to guess my secret 4-digit number." +
-                "Use 'top' to view the top scoreboard, 'restart'" +
-                "to start a new game and 'help'" +
-                " to cheat and 'exit' to quit the game.");
+            this.OutputWriter.WriteOutput(GameConstants.WelcomeMessage);
             this.Initialize();
 
             while (!this.IsGuessed)
             {
-                Console.Write("Enter your guess or command: ");
+                Console.Write(GameConstants.EnterCommand);
                 this.ExecuteCommandLoop();           
             }
 
@@ -76,7 +72,7 @@ namespace BullsAndCows
             }
             catch (InvalidOperationException)
             {
-                this.Output.AppendLine("Invalid operation");
+                this.Output.AppendLine(GameConstants.InvalidOperation);
             }
 
             this.OutputWriter.WriteOutput(this.Output.ToString());
