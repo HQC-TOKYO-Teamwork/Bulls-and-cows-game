@@ -7,9 +7,11 @@ namespace BullsAndCows.Commands
 {
     public class HelpCommand : AbstractCommand
     {
+        private GameEngine GameEngine { get; set; }
         public HelpCommand(GameEngine engine)
             :base(engine)
-        {    
+        {
+            this.GameEngine = engine;
         }
 
         public override void Execute()

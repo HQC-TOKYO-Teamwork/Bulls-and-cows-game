@@ -12,12 +12,15 @@
         public GuessCommand(GameEngine engine, string guess)
             : base(engine)
         {
+            this.GameEngine = engine;
             this.GuessString = guess;
             this.NumberForGuess = engine.NumberForGuess;
             this.OutputWriter = engine.OutputWriter;
         }
 
-        public string GuessString { get; private set; }
+        public GameEngine GameEngine { get; set; }
+
+        private string GuessString { get; set; }
 
         private IOutputWriter OutputWriter { get; set; }
 
@@ -25,6 +28,7 @@
 
         public override void Execute()
         {
+            this.GameEngine.guessesCount++;
             this.ProcessGuessedNumber(this.GuessString, this.NumberForGuess);
         }
 
@@ -100,6 +104,22 @@
             StringBuilder sb = new StringBuilder(this.NumberForGuess);
             sb[indexOfGuessedNumber] = 'x';
             this.NumberForGuess = sb.ToString();
+        }
+
+        private void PrintCongratulationMessage()
+        {
+            StringBuilder output = new StringBuilder();
+            output.AppendFormat(String.Format(GameConstants.WinnerMessageWithOutCheats, this.GameEngine.guessesCount));
+
+            if (this.GameEngine.CheatsCount == 0)
+            {
+                this.OutputWriter.WriteOutput(output.ToString());
+            }
+            else
+            {
+                output.AppendFormat(String.Format(GameConstants.CheatMessageExtention, this.GameEngine.guessesCount, this.GameEngine.CheatsCount));
+                this.OutputWriter.WriteOutput(output.ToString());
+            }
         }
     }
 }
