@@ -35,7 +35,7 @@ namespace BullsAndCows
 
         public string NumberForGuess { get; private set; }
 
-        public StringBuilder Output { get; private set; }
+        //public StringBuilder Output { get; private set; }
 
         public IInputReader InputReader { get; private set; }
 
@@ -59,7 +59,7 @@ namespace BullsAndCows
 
         protected virtual void ExecuteCommandLoop()
         {
-            this.Output.Clear();
+            //this.Output.Clear();
             var inputCommand = this.InputReader.ReadInput();
 
             try
@@ -69,14 +69,14 @@ namespace BullsAndCows
             }
             catch (CommandException ex)
             {
-                this.Output.AppendLine(ex.Message);
+                this.OutputWriter.WriteOutput(ex.Message);
             }
             catch (InvalidOperationException)
             {
-                this.Output.AppendLine(GameConstants.InvalidOperation);
+                this.OutputWriter.WriteOutput(GameConstants.InvalidOperation);
             }
 
-            this.OutputWriter.WriteOutput(this.Output.ToString());
+            //this.OutputWriter.WriteOutput(this.Output.ToString());
         }
 
         private void Initialize()
@@ -86,7 +86,7 @@ namespace BullsAndCows
             this.IsGuessed = false;
             this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
             this.NumberForGuess = this.GenerateNumberForGuess();
-            this.Output = new StringBuilder();
+            //this.Output = new StringBuilder();
         }
 
         private string GenerateNumberForGuess()
