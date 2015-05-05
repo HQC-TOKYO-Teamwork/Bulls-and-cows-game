@@ -14,7 +14,7 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            this.Engine.ScoreBoard.PrintScoreboard();
+            this.Engine.OutputWriter.WriteOutput(this.Engine.ScoreBoard.ToString());
         }
     }
 }

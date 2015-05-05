@@ -20,7 +20,7 @@ namespace BullsAndCows
 
         public List<PlayerInfo> TopPlayers { get; set; }
 
-        public void PrintScoreboard()
+        public string ToString()
         {
             if (this.TopPlayers.Count > 0)
             {
@@ -37,11 +37,11 @@ namespace BullsAndCows
                     scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                     currentPosition++;
                 }
-                this.engine.OutputWriter.WriteOutput(scoreBoardBuilder.ToString());
+                return scoreBoardBuilder.ToString();
             }
             else
             {
-                this.engine.OutputWriter.WriteOutput(GameConstants.ScoreBoardEmpty);
+                return GameConstants.ScoreBoardEmpty;
             }
         }
 

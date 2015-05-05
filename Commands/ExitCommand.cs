@@ -15,7 +15,7 @@ namespace BullsAndCows.Commands
         public override void Execute()
         {
             this.Engine.OutputWriter.WriteOutput(GameConstants.GoodbyeMessage);
-            Environment.Exit(1);
+            Environment.Exit(0);
         }
     }
 }
