@@ -79,6 +79,10 @@ namespace BullsAndCows
                     playerNick = this.engine.InputReader.ReadInput();
                     newPlayer = new PlayerInfo(playerNick, guesses);
                 }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    this.engine.OutputWriter.WriteOutput(e.Message);
+                }
                 catch (ArgumentException e)
                 {
                     this.engine.OutputWriter.WriteOutput(e.Message);

@@ -4,34 +4,44 @@ using BullsAndCows.Constants;
 public class PlayerInfo : IComparable<PlayerInfo>
 {
     private string nickName;
-
-    public string NickName
-    {
-        get
-        {
-
-
-            return nickName;
-        }
-        set
-        {
-            if (nickName == String.Empty)
-            {
-                throw new ArgumentException("NickName should have at least 1 symbol!");
-            }
-            else
-            {
-                nickName = value;
-            }
-        }
-    }
-
-    public int Guesses { get; set; }
+    private int guesses;
 
     public PlayerInfo(string nickName, int guesses)
     {
         this.NickName = nickName;
         this.Guesses = guesses;
+    }
+
+    public string NickName
+    {
+        get
+        {
+            return this.nickName;
+        }
+        set
+        {
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("NickName should have at least 1 symbol!");
+            }
+            this.nickName = value;
+        }
+    }
+
+    public int Guesses
+    {
+        get
+        {
+            return this.guesses;
+        }
+        set
+        {
+            if (value <= 0)
+            {
+                throw new ArgumentOutOfRangeException("Guesses count can't be 0 or negative");
+            }
+            this.guesses = value;
+        }     
     }
 
     public int CompareTo(PlayerInfo other)
