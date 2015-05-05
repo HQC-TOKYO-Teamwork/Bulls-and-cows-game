@@ -52,8 +52,17 @@ namespace BullsAndCows
                 this.ExecuteCommandLoop();
             }
 
-            this.ScoreBoard.AddPlayerToScoreboard(this.guessesCount);
-            this.ScoreBoard.PrintScoreboard();
+            if (this.CheatsCount > 0)
+            {
+                this.OutputWriter.WriteOutput("You are not allowed to enter the top scoreboard.");
+            }
+            else
+            {
+                PlayerInfo player = this.ScoreBoard.GetPlayerInfo(this.guessesCount);
+                this.ScoreBoard.AddPlayerToScoreboard(player);
+                this.ScoreBoard.PrintScoreboard();
+            }
+
             this.CreateNewGame();
         }
 

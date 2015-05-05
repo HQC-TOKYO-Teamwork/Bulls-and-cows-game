@@ -11,27 +11,28 @@ namespace BullsAndCows
         private const char LineChar = '-';
         private const int CharsPerLine = 30;
         private readonly GameEngine engine;
-        private readonly List<PlayerInfo> topPlayers;
 
         public Scoreboard(GameEngine engine)
         {
             this.engine = engine;
-            this.topPlayers = new List<PlayerInfo>();
+            this.TopPlayers = new List<PlayerInfo>();
         }
+
+        public List<PlayerInfo> TopPlayers { get; set; }
 
         public void PrintScoreboard()
         {
-            if (topPlayers.Count > 0)
+            if (this.TopPlayers.Count > 0)
             {
                 StringBuilder scoreBoardBuilder = new StringBuilder();
                 scoreBoardBuilder.AppendLine(GameConstants.ScoreBoardTitle);
-                scoreBoardBuilder.AppendLine(String.Format("  {0,7} | {1}", "Guesses", "Name")); //todo
+                scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel)); //todo
                 scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                 int currentPosition = 1;
 
-                foreach (var player in this.topPlayers)
+                foreach (var player in this.TopPlayers)
                 {
-                    scoreBoardBuilder.AppendLine(String.Format("{0}| {1}",
+                    scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat,
                                       currentPosition, player));
                     scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                     currentPosition++;
@@ -44,28 +45,21 @@ namespace BullsAndCows
             }
         }
 
-        public void AddPlayerToScoreboard(int guesses)
+        public void AddPlayerToScoreboard(PlayerInfo player)
         {
-            if (this.engine.CheatsCount > 0)
+            if (this.TopPlayers.Count < 5)
             {
-                this.engine.OutputWriter.WriteOutput("You are not allowed to enter the top scoreboard.");
+                this.TopPlayers.Add(player);
             }
-            else
+            else if (this.TopPlayers[4].Guesses > player.Guesses)
             {
-                if (topPlayers.Count < 5)
-                {
-                    topPlayers.Add(CreatePlayer(guesses));
-                }
-                else if (topPlayers[4].Guesses > guesses)
-                {
-                    topPlayers.RemoveAt(4);
-                    topPlayers.Add(CreatePlayer(guesses));
-                }
-                this.topPlayers.Sort();
+                this.TopPlayers.RemoveAt(4);
+                this.TopPlayers.Add(player);
             }
+            this.TopPlayers.Sort();
         }
 
-        private PlayerInfo CreatePlayer(int guesses)
+        public PlayerInfo GetPlayerInfo(int guesses)
         {
             this.engine.OutputWriter.WriteOutput("You can add your nickname to top scores!");
             string playerNick = String.Empty;

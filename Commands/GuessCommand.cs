@@ -41,7 +41,7 @@
             {
                 this.GameEngine.IsGuessed = true;
                 PrintCongratulationMessage();
-                this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
+               // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
             }
             else
             {
