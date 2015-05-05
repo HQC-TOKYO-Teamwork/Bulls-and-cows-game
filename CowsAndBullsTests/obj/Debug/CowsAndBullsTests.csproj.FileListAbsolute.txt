@@ -1,0 +1,6 @@
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\bin\Debug\CowsAndBullsTests.dll
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\bin\Debug\CowsAndBullsTests.pdb
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\bin\Debug\BullsAndCows.exe
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\bin\Debug\BullsAndCows.pdb
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\obj\Debug\CowsAndBullsTests.dll
+C:\Users\ASUS\Documents\SoftUni\HQC-Teamwork\Bulls-and-cows-game\CowsAndBullsTests\obj\Debug\CowsAndBullsTests.pdb
