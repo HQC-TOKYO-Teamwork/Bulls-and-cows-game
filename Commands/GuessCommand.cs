@@ -14,7 +14,7 @@
         {
             this.GameEngine = engine;
             this.GuessString = guess;
-            this.NumberForGuess = engine.NumberForGuess;
+            this.NumberForGuessAsString = engine.NumberForGuess;
             this.OutputWriter = engine.OutputWriter;
         }
 
@@ -24,15 +24,13 @@
 
         private IOutputWriter OutputWriter { get; set; }
 
-        private string NumberForGuess { get; set; }
+        private string NumberForGuessAsString { get; set; }
 
         public override void Execute()
         {
             ++this.GameEngine.guessesCount;
-            Console.WriteLine(++this.GameEngine.guessesCount);
-            Console.WriteLine(this.GameEngine.guessesCount);
-            this.ProcessGuessedNumber(this.GuessString, this.NumberForGuess);
-           
+            this.ProcessGuessedNumber(this.GuessString, this.NumberForGuessAsString);
+
         }
 
         private void ProcessGuessedNumber(string guess, string answer)
@@ -41,7 +39,7 @@
             {
                 this.GameEngine.IsGuessed = true;
                 PrintCongratulationMessage();
-               // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
+                // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
             }
             else
             {
@@ -57,9 +55,9 @@
             return new string[] { bulls, cows };
         }
 
-        private bool GuessNumberIsForGuess(string guess, string numberForGuess)
+        private bool GuessNumberIsForGuess(string guess, string numberForGuessAsString)
         {
-            if (guess == numberForGuess)
+            if (guess == numberForGuessAsString)
             {
                 return true;
             }
@@ -67,13 +65,14 @@
             return false;
         }
 
-        private string CountBulls(string guess, string numberForGuess)
+        private string CountBulls(string guess, string numberForGuessAsString)
         {
             int bullsCount = 0;
             for (int i = 0; i < guess.Length; i++)
             {
-                if (guess[i] == numberForGuess[i])
+                if (guess[i] == numberForGuessAsString[i])
                 {
+                    this.UpdateGuessString(i);
                     bullsCount++;
                 }
             }
@@ -81,12 +80,12 @@
             return bullsCount.ToString();
         }
 
-        private string CountCows(string guess, string numberToGuess)
+        private string CountCows(string guess, string numberForGuessAsString)
         {
             int cows = 0;
             for (int i = 0; i < guess.Length; i++)
             {
-                if (this.NumberForGuess.Contains(guess[i]))
+                if (this.NumberForGuessAsString.Contains(guess[i]))
                 {
                     this.UpdateGuessString(i);
                     cows++;
@@ -105,10 +104,10 @@
 
         private void UpdateGuessString(int index)
         {
-            int indexOfGuessedNumber = this.NumberForGuess.IndexOf(this.GuessString[index]);
-            StringBuilder sb = new StringBuilder(this.NumberForGuess);
+            int indexOfGuessedNumber = this.NumberForGuessAsString.IndexOf(this.GuessString[index]);
+            StringBuilder sb = new StringBuilder(this.NumberForGuessAsString);
             sb[indexOfGuessedNumber] = 'x';
-            this.NumberForGuess = sb.ToString();
+            this.NumberForGuessAsString = sb.ToString();
         }
 
         private void PrintCongratulationMessage()
