@@ -112,6 +112,9 @@ public class cows_buls
     //    }
     //    Console.WriteLine();
     //}
+
+
+
     //private static bool isEqualToNumberForGuess(string tryNumber)
     //{
     //    bool isEqualToNumberForGuess =

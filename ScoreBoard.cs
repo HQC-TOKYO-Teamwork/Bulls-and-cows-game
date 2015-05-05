@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BullsAndCows.Constants;
 
 namespace BullsAndCows
 {
@@ -23,8 +24,8 @@ namespace BullsAndCows
             if (topPlayers.Count > 0)
             {
                 StringBuilder scoreBoardBuilder = new StringBuilder();
-                scoreBoardBuilder.AppendLine("Scoreboard:");
-                scoreBoardBuilder.AppendLine(String.Format("  {0,7} | {1}", "Guesses", "Name"));
+                scoreBoardBuilder.AppendLine(GameConstants.ScoreBoardTitle);
+                scoreBoardBuilder.AppendLine(String.Format("  {0,7} | {1}", "Guesses", "Name")); //todo
                 scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                 int currentPosition = 1;
 
@@ -39,7 +40,7 @@ namespace BullsAndCows
             }
             else
             {
-                this.engine.OutputWriter.WriteOutput("Scoreboard is empty!");
+                this.engine.OutputWriter.WriteOutput(GameConstants.ScoreBoardEmpty);
             }
         }
 

@@ -50,6 +50,8 @@
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\RestartCommand.cs" />
     <Compile Include="Commands\TopCommand.cs" />
+    <Compile Include="Constants\ExceptionConstants.cs" />
+    <Compile Include="Constants\GameConstants.cs" />
     <Compile Include="cows_buls.cs" />
     <Compile Include="BullsAndCowsTest.cs" />
     <Compile Include="GameEngine.cs" />

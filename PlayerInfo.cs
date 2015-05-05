@@ -1,4 +1,5 @@
 ﻿using System;
+using BullsAndCows.Constants;
 
 public class PlayerInfo : IComparable<PlayerInfo>
 {
@@ -47,7 +48,7 @@ public class PlayerInfo : IComparable<PlayerInfo>
 
     public override string ToString()
     {
-        string result = String.Format("{0,3}    | {1}", Guesses, NickName);
+        string result = String.Format(GameConstants.PlayerInfo, Guesses, NickName);
         return result;
     }
 }

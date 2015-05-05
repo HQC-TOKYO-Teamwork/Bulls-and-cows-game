@@ -6,13 +6,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using BullsAndCows.Commands.Exceptions;
 using BullsAndCows.Interfaces;
+using BullsAndCows.Constants;
 
 namespace BullsAndCows.Commands.Factories
 {
     public class CommandFactory
     {
-        private const string CommandSuffix = "Command";
-        private const string GuessPattern = @"\d{4}";
+        private const string CommandSuffix = GameConstants.CommandSuffix;
+        private const string GuessPattern = GameConstants.GuessPattern;
 
         // Should be changed to IGameEngine
         public static ICommand Create(string commandInput, GameEngine engine)

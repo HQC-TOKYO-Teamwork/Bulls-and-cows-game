@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using BullsAndCows.Constants;
 namespace BullsAndCows.Commands
 {
     public class ExitCommand : AbstractCommand
@@ -14,7 +14,7 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            this.Engine.OutputWriter.WriteOutput("Good bye!");
+            this.Engine.OutputWriter.WriteOutput(GameConstants.GoodbyeMessage);
             Environment.Exit(1);
         }
     }
