@@ -12,7 +12,6 @@ namespace BullsAndCows
 {
     public class GameEngine
     {
-        //Change to ScoreBoard class instance
         private int guessesCount;
         private char[] helpingNumber;
         private Random randomGenerator;
@@ -57,7 +56,7 @@ namespace BullsAndCows
 
             this.ScoreBoard.AddPlayerToScoreboard(this.guessesCount);
             this.ScoreBoard.PrintScoreboard();
-            this.CreateNewGame();
+            this.Play();
         }
 
         protected virtual void ExecuteCommandLoop()
@@ -102,11 +101,6 @@ namespace BullsAndCows
                 digits.Append(digit);
             }
             return digits.ToString();
-        }
-
-        private void CreateNewGame()
-        {
-            Play();
         }
     }
 }
