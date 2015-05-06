@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using BullsAndCows.Commands.Exceptions;
-using BullsAndCows.Interfaces;
-using BullsAndCows.Constants;
-
-namespace BullsAndCows.Commands.Factories
+﻿namespace BullsAndCows.Commands.Factories
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text.RegularExpressions;
+    using Interfaces;
+    using Constants;
+
     public class CommandFactory
     {
         private const string CommandSuffix = GameConstants.CommandSuffix;

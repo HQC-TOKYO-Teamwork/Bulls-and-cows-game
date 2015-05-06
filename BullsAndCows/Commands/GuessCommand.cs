@@ -1,11 +1,10 @@
 ﻿namespace BullsAndCows.Commands
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using BullsAndCows.Constants;
-    using BullsAndCows.Interfaces;
+    using Constants;
+    using Interfaces;
 
     public class GuessCommand : AbstractCommand
     {
@@ -28,7 +27,7 @@
 
         public override void Execute()
         {
-            ++this.GameEngine.guessesCount;
+            ++this.GameEngine.GuessesCount;
             this.ProcessGuessedNumber(this.GuessString, this.NumberForGuessAsString);
 
         }
@@ -39,7 +38,7 @@
             {
                 this.GameEngine.IsGuessed = true;
                 PrintCongratulationMessage();
-                // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.guessesCount);
+                // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.GuessesCount);
             }
             else
             {
@@ -113,7 +112,7 @@
         private void PrintCongratulationMessage()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat(String.Format(GameConstants.WinnerMessageWithOutCheats, this.GameEngine.guessesCount));
+            output.AppendFormat(String.Format(GameConstants.WinnerMessageWithOutCheats, this.GameEngine.GuessesCount));
 
             if (this.GameEngine.CheatsCount == 0)
             {
@@ -121,7 +120,7 @@
             }
             else
             {
-                output.AppendFormat(String.Format(GameConstants.CheatMessageExtention, this.GameEngine.guessesCount, this.GameEngine.CheatsCount));
+                output.AppendFormat(String.Format(GameConstants.CheatMessageExtention, this.GameEngine.GuessesCount, this.GameEngine.CheatsCount));
                 this.OutputWriter.WriteOutput(output.ToString());
             }
         }

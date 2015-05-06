@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BullsAndCows.Constants;
-namespace BullsAndCows.Commands
+﻿namespace BullsAndCows.Commands
 {
+    using System;
+    using Constants;
+
     public class ExitCommand : AbstractCommand
     {
         public ExitCommand(GameEngine engine)

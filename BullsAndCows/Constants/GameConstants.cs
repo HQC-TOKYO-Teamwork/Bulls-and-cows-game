@@ -12,6 +12,11 @@
                 "to start a new game and 'help'" +
                  " to cheat and 'exit' to quit the game.";
 
+        public const string NotAllowedToEnterScoreboard = "You are not allowed to enter the top scoreboard.";
+        public const string AllowedToEnterScoreboard = "You can add your nickname to top scores!";
+        public const string EnterNickname = "Enter your nickname: ";
+        public const string NickNameTooShort = "NickName should have at least 1 symbol!";
+        public const string InvalidGuesses = "Guesses count can't be 0 or negative";
         public const string EnterCommand = "Enter your guess or command: ";
         public const string InvalidOperation = "Invalid operation";
         public const string ScoreBoardTitle = "Scoreboard:";

@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using BullsAndCows.Commands.Exceptions;
-using BullsAndCows.Commands.Factories;
-using BullsAndCows.InputReaders;
-using BullsAndCows.Interfaces;
-using BullsAndCows.Constants;
-
 namespace BullsAndCows
 {
+    using System;
+    using System.Text;
+    using Commands.Exceptions;
+    using Commands.Factories;
+    using Interfaces;
+    using Constants;
+
     public class GameEngine
-    {
-        //Change to ScoreBoard class instance   
-        public int guessesCount;
+    {        
         internal char[] digitForReveal;
-        public char[] helpingNumber;
         internal Random randomGenerator;
 
         public GameEngine(IInputReader inputReader, IOutputWriter outputWriter)
@@ -27,6 +20,10 @@ namespace BullsAndCows
             this.randomGenerator = new Random();
         }
 
+        public char[] HelpingNumber { get; set; }
+
+        public int GuessesCount { get; set; }
+
         public bool IsGuessed { get; set; }
 
         public Scoreboard ScoreBoard { get; private set; }
@@ -35,11 +32,9 @@ namespace BullsAndCows
 
         public string NumberForGuess { get; private set; }
 
-        //public StringBuilder Output { get; private set; }
+        public IInputReader InputReader { get; private set; }
 
-        public IInputReader InputReader { get; set; }
-
-        public IOutputWriter OutputWriter { get; set; }
+        public IOutputWriter OutputWriter { get; private set; }
 
         public void Play()
         {
@@ -54,11 +49,11 @@ namespace BullsAndCows
 
             if (this.CheatsCount > 0)
             {
-                this.OutputWriter.WriteOutput("You are not allowed to enter the top scoreboard.");
+                this.OutputWriter.WriteOutput(GameConstants.NotAllowedToEnterScoreboard);
             }
             else
             {
-                PlayerInfo player = this.ScoreBoard.GetPlayerInfo(this.guessesCount);
+                PlayerInfo player = this.ScoreBoard.GetPlayerInfo(this.GuessesCount);
                 this.ScoreBoard.AddPlayerToScoreboard(player);
                 this.OutputWriter.WriteOutput(this.ScoreBoard.ToString());
             }
@@ -68,17 +63,15 @@ namespace BullsAndCows
 
         public void Initialize()
         {
-            this.guessesCount = 0;
+            this.GuessesCount = 0;
             this.CheatsCount = 0;
             this.IsGuessed = false;
-            this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
+            this.HelpingNumber = new char[] { 'X', 'X', 'X', 'X' };
             this.NumberForGuess = this.GenerateNumberForGuess();
-            //this.Output = new StringBuilder();
         }
 
         protected virtual void ExecuteCommandLoop()
         {
-            //this.Output.Clear();
             var inputCommand = this.InputReader.ReadInput();
 
             try
@@ -94,8 +87,6 @@ namespace BullsAndCows
             {
                 this.OutputWriter.WriteOutput(GameConstants.InvalidOperation);
             }
-
-            //this.OutputWriter.WriteOutput(this.Output.ToString());
         }
 
         private string GenerateNumberForGuess()

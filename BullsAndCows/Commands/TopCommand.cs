@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BullsAndCows.Commands
+﻿namespace BullsAndCows.Commands
 {
     public class TopCommand : AbstractCommand
     {

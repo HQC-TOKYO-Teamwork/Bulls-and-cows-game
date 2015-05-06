@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BullsAndCows.Commands.Exceptions
+﻿namespace BullsAndCows.Commands.Exceptions
 {
+    using System;
+
     public class CommandException : Exception
     {
         public CommandException(string message)

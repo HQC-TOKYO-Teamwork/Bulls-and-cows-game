@@ -28,19 +28,19 @@
 
         private void PrintHelpingNumber()
         {
-            this.GameEngine.OutputWriter.WriteOutput(string.Join(string.Empty, this.GameEngine.helpingNumber));
+            this.GameEngine.OutputWriter.WriteOutput(string.Join(string.Empty, this.GameEngine.HelpingNumber));
         }
 
         private void GenerateHelperDigit()
         {
             Random random = new Random();
             int position = this.GameEngine.randomGenerator.Next(0, 4);
-            while (this.GameEngine.helpingNumber[position] != 'X' && this.GameEngine.digitForReveal[position] == '_')
+            while (this.GameEngine.HelpingNumber[position] != 'X' && this.GameEngine.digitForReveal[position] == '_')
             {
                 position = random.Next(0, 4);
             }
 
-            this.GameEngine.helpingNumber[position] = this.GameEngine.digitForReveal[position];
+            this.GameEngine.HelpingNumber[position] = this.GameEngine.digitForReveal[position];
             this.GameEngine.digitForReveal[position] = '_';
         }
     }

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BullsAndCows.Constants;
-
-namespace BullsAndCows
+﻿namespace BullsAndCows
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using Constants;
+
     public class Scoreboard
     {
-        private const char LineChar = '-';
-        private const int CharsPerLine = 30;
         private readonly GameEngine engine;
 
         public Scoreboard(GameEngine engine)
@@ -25,10 +22,10 @@ namespace BullsAndCows
             if (this.TopPlayers.Count > 0)
             {
                 StringBuilder scoreBoardBuilder = new StringBuilder();
-                scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
+                scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 scoreBoardBuilder.AppendLine(GameConstants.ScoreBoardTitle);
                 scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardHeaderFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel)); //todo
-                scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
+                scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 int currentPosition = 1;
 
                 foreach (var player in this.TopPlayers)
@@ -37,7 +34,7 @@ namespace BullsAndCows
                                       currentPosition, player));
                     currentPosition++;
                 }
-                scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
+                scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 return scoreBoardBuilder.ToString();
             }
             else
@@ -62,7 +59,7 @@ namespace BullsAndCows
 
         public PlayerInfo GetPlayerInfo(int guesses)
         {
-            this.engine.OutputWriter.WriteOutput("You can add your nickname to top scores!");
+            this.engine.OutputWriter.WriteOutput(GameConstants.AllowedToEnterScoreboard);
             string playerNick = String.Empty;
             PlayerInfo newPlayer = null;
 
@@ -70,7 +67,7 @@ namespace BullsAndCows
             {
                 try
                 {
-                    this.engine.OutputWriter.WriteOutput("Enter your nickname: ");
+                    this.engine.OutputWriter.WriteOutput(GameConstants.EnterNickname);
                     playerNick = this.engine.InputReader.ReadInput();
                     newPlayer = new PlayerInfo(playerNick, guesses);
                 }

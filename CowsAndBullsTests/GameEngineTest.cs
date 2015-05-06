@@ -18,13 +18,8 @@ namespace CowsAndBullsTests
         [TestInitialize]
         public void GameEngineInitialize()
         {
-            this.Engine = new GameEngine(new ArrayReader(new List<string>()), new ConsoleWriter());
+            this.Engine = new GameEngine(new ConsoleReader(), new ConsoleWriter());
         }
 
-        //[TestMethod]
-        //public void TestWelcomeMessageIsShown()
-        //{
-        //    this.Engine.InputReader = new ArrayReader(new List<string>() {"top", "exit"});
-        //}
     }
 }

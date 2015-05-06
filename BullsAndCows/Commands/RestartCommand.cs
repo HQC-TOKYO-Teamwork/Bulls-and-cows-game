@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BullsAndCows.Constants;
-
-namespace BullsAndCows.Commands
+﻿namespace BullsAndCows.Commands
 {
+    using Constants;
+
     public class RestartCommand : AbstractCommand
     {
         public RestartCommand(GameEngine engine)

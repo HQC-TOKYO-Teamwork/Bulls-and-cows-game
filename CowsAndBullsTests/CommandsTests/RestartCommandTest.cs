@@ -30,8 +30,8 @@ namespace BullsAndCowsTest.CommandTests
             ICommand command = CommandFactory.Create("restart", this.Engine);
             command.Execute();
 
-            var isDefaultHelpingNumber = Enumerable.SequenceEqual(this.Engine.helpingNumber, new char[] { 'X', 'X', 'X', 'X' });
-            var isDefaultGuessesCount = this.Engine.guessesCount.Equals(0);
+            var isDefaultHelpingNumber = Enumerable.SequenceEqual(this.Engine.HelpingNumber, new char[] { 'X', 'X', 'X', 'X' });
+            var isDefaultGuessesCount = this.Engine.GuessesCount.Equals(0);
             var isDefaultCheatsCount = this.Engine.CheatsCount.Equals(0);
             var isDefaultIsGuessed = this.Engine.IsGuessed.Equals(false);
             var isLegalNumber = CheckIfGuessNumberIsLegal(this.Engine.NumberForGuess);

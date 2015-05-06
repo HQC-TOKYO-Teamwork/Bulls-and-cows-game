@@ -1,64 +1,61 @@
-﻿using System;
-using BullsAndCows.Constants;
-
-public class PlayerInfo : IComparable<PlayerInfo>
+﻿namespace BullsAndCows
 {
-    private string nickName;
-    private int guesses;
+    using System;
+    using Constants;
 
-    public PlayerInfo(string nickName, int guesses)
+    public class PlayerInfo : IComparable<PlayerInfo>
     {
-        this.NickName = nickName;
-        this.Guesses = guesses;
-    }
+        private string nickName;
+        private int guesses;
 
-    public string NickName
-    {
-        get
+        public PlayerInfo(string nickName, int guesses)
         {
-            return this.nickName;
+            this.NickName = nickName;
+            this.Guesses = guesses;
         }
-        set
+
+        public string NickName
         {
-            if (String.IsNullOrWhiteSpace(value))
+            get { return this.nickName; }
+            set
             {
-                throw new ArgumentException("NickName should have at least 1 symbol!");
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(GameConstants.NickNameTooShort);
+                }
+                this.nickName = value;
             }
-            this.nickName = value;
         }
-    }
 
-    public int Guesses
-    {
-        get
+        public int Guesses
         {
-            return this.guesses;
-        }
-        set
-        {
-            if (value <= 0)
+            get { return this.guesses; }
+            set
             {
-                throw new ArgumentOutOfRangeException("Guesses count can't be 0 or negative");
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(GameConstants.InvalidGuesses);
+                }
+                this.guesses = value;
             }
-            this.guesses = value;
-        }     
-    }
-
-    public int CompareTo(PlayerInfo other)
-    {
-        if (this.Guesses.CompareTo(other.Guesses) == 0)
-        {
-            return this.NickName.CompareTo(other.NickName);
         }
-        else
-        {
-            return this.Guesses.CompareTo(other.Guesses);
-        }
-    }
 
-    public override string ToString()
-    {
-        string result = String.Format(GameConstants.PlayerInfo, Guesses, NickName);
-        return result;
+        public int CompareTo(PlayerInfo other)
+        {
+            if (this.Guesses.CompareTo(other.Guesses) == 0)
+            {
+                return this.NickName.CompareTo(other.NickName);
+            }
+            else
+            {
+                return this.Guesses.CompareTo(other.Guesses);
+            }
+        }
+
+        public override string ToString()
+        {
+            string result = String.Format(GameConstants.PlayerInfo, Guesses, NickName);
+            return result;
+        }
     }
 }

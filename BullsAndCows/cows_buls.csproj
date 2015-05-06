@@ -52,8 +52,7 @@
     <Compile Include="Commands\TopCommand.cs" />
     <Compile Include="Constants\ExceptionConstants.cs" />
     <Compile Include="Constants\GameConstants.cs" />
-    <Compile Include="cows_buls.cs" />
-    <Compile Include="BullsAndCowsTest.cs" />
+    <Compile Include="BullsAndCowsStart.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="InputReaders\ConsoleReader.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
