@@ -87,5 +87,18 @@ namespace CowsAndBullsTests.CommandsTests
             string expectedOutput = "Bulls: 1, Cows: 3";
             Assert.AreEqual(expectedOutput, this.ConsoleOutPutForBullsAndCows);
         }
+
+       [TestMethod]
+        public void TestOneBullAndThreeCowsWithCheat()
+        {
+            this.Engine.CheatsCount = 2;
+            this.GuessString = "1432";
+            this.Engine.NumberForGuess = "1243";
+            this.GuessCommand = new GuessCommand(this.Engine, this.GuessString);
+            this.GuessCommand.Execute();
+            this.ConsoleOutPutForBullsAndCows = this.GuessCommand.BullsAndCowsOutPut;
+            string expectedOutput = "Bulls: 1, Cows: 3";
+            Assert.AreEqual(expectedOutput, this.ConsoleOutPutForBullsAndCows);
+        }
     }
 }

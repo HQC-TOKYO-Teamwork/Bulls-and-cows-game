@@ -112,15 +112,16 @@
         private void PrintCongratulationMessage()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.Engine.GuessesCount));
+            
 
             if (this.Engine.CheatsCount == 0)
             {
+                output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.Engine.GuessesCount));
                 this.OutputWriter.WriteOutput(output.ToString());
             }
             else
             {
-                output.AppendFormat(Messages.CheatMessageExtention, this.Engine.GuessesCount, this.Engine.CheatsCount);
+                output.AppendFormat(Messages.WinnerMessageWithCheats, this.Engine.GuessesCount, this.Engine.CheatsCount);
                 this.OutputWriter.WriteOutput(output.ToString());
             }
         }
