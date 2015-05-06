@@ -21,7 +21,7 @@
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException(GameConstants.NickNameTooShort);
+                    throw new ArgumentException(ExceptionConstants.NickNameTooShort);
                 }
                 this.nickName = value;
             }
@@ -34,7 +34,7 @@
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException(GameConstants.InvalidGuesses);
+                    throw new ArgumentOutOfRangeException(ExceptionConstants.InvalidGuesses);
                 }
                 this.guesses = value;
             }

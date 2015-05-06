@@ -12,7 +12,7 @@
 
         public override void Execute()
         {
-            this.Engine.OutputWriter.WriteOutput(GameConstants.GoodbyeMessage);
+            this.Engine.OutputWriter.WriteOutput(Messages.GoodbyeMessage);
             Environment.Exit(0);
         }
     }

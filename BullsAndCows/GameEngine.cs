@@ -38,18 +38,18 @@ namespace BullsAndCows
 
         public void Play()
         {
-            this.OutputWriter.WriteOutput(GameConstants.WelcomeMessage);
+            this.OutputWriter.WriteOutput(Messages.WelcomeMessage);
             this.Initialize();
             
             while (!this.IsGuessed)
             {
-                Console.Write(GameConstants.EnterCommand);
+                Console.Write(Messages.EnterCommand);
                 this.ExecuteCommandLoop();
             }
 
             if (this.CheatsCount > 0)
             {
-                this.OutputWriter.WriteOutput(GameConstants.NotAllowedToEnterScoreboard);
+                this.OutputWriter.WriteOutput(Messages.NotAllowedToEnterScoreboard);
             }
             else
             {
@@ -83,9 +83,9 @@ namespace BullsAndCows
             {
                 this.OutputWriter.WriteOutput(ex.Message);
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException ex)
             {
-                this.OutputWriter.WriteOutput(GameConstants.InvalidOperation);
+                this.OutputWriter.WriteOutput(ExceptionConstants.InvalidOperation);
             }
         }
 

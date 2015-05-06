@@ -39,7 +39,7 @@
             }
             else
             {
-                return GameConstants.ScoreBoardEmpty;
+                return Messages.ScoreBoardEmpty;
             }
         }
 
@@ -59,7 +59,7 @@
 
         public PlayerInfo GetPlayerInfo(int guesses)
         {
-            this.engine.OutputWriter.WriteOutput(GameConstants.AllowedToEnterScoreboard);
+            this.engine.OutputWriter.WriteOutput(Messages.AllowedToEnterScoreboard);
             string playerNick = String.Empty;
             PlayerInfo newPlayer = null;
 
@@ -67,7 +67,7 @@
             {
                 try
                 {
-                    this.engine.OutputWriter.WriteOutput(GameConstants.EnterNickname);
+                    this.engine.OutputWriter.WriteOutput(Messages.EnterNickname);
                     playerNick = this.engine.InputReader.ReadInput();
                     newPlayer = new PlayerInfo(playerNick, guesses);
                 }

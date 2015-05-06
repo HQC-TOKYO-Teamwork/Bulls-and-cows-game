@@ -112,7 +112,7 @@
         private void PrintCongratulationMessage()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat(String.Format(GameConstants.WinnerMessageWithOutCheats, this.GameEngine.GuessesCount));
+            output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.GameEngine.GuessesCount));
 
             if (this.GameEngine.CheatsCount == 0)
             {
@@ -120,7 +120,7 @@
             }
             else
             {
-                output.AppendFormat(String.Format(GameConstants.CheatMessageExtention, this.GameEngine.GuessesCount, this.GameEngine.CheatsCount));
+                output.AppendFormat(String.Format(Messages.CheatMessageExtention, this.GameEngine.GuessesCount, this.GameEngine.CheatsCount));
                 this.OutputWriter.WriteOutput(output.ToString());
             }
         }

@@ -11,7 +11,7 @@
 
         public override void Execute()
         {
-            this.Engine.OutputWriter.WriteOutput(GameConstants.WelcomeMessage);
+            this.Engine.OutputWriter.WriteOutput(Messages.WelcomeMessage);
             this.Engine.Initialize();
         }
     }

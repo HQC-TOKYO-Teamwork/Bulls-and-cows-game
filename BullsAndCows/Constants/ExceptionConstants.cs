@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BullsAndCows.Constants
+﻿namespace BullsAndCows.Constants
 {
-    class ExceptionConstants
+    public static class ExceptionConstants
     {
-        //todo add all exception constants
+        public const string NickNameTooShort = "NickName should have at least 1 symbol!";
+        public const string InvalidGuesses = "Guesses count can't be 0 or negative";
+        public const string InvalidOperation = "Invalid operation";
     }
 }
