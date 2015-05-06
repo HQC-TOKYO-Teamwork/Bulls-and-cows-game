@@ -37,7 +37,6 @@ namespace BullsAndCowsTest.CommandTests
         {
             string input = "1234";
             ICommand command = CommandFactory.Create(input, this.Engine);
-            var a = 5;
             Assert.IsInstanceOfType(command, typeof(GuessCommand), "Instance of GuessCommand is expected");
         }
 

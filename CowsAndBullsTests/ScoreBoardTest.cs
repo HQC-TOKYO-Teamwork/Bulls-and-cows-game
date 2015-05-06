@@ -114,25 +114,42 @@ namespace BullsAndCowsTest
             }
         }
 
-        //[TestMethod]
-        //public void TestPrintFullScoreBoard()
-        //{
-        //    using (StringWriter sw = new StringWriter())
-        //    {
-        //        Console.SetOut(sw);
-        //        this.Engine.ScoreBoard.TopPlayers = new List<PlayerInfo>
-        //        {
-        //            new PlayerInfo("nick", 5),
-        //            new PlayerInfo("nick", 6),
-        //            new PlayerInfo("nick", 7),
-        //            new PlayerInfo("nick", 8),
-        //            new PlayerInfo("nick", 9)
-        //        };
-        //        this.Engine.ScoreBoard.PrintScoreboard();
+        [TestMethod]
+        public void TestPrintFullScoreBoard()
+        {
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                this.Engine.ScoreBoard.TopPlayers = new List<PlayerInfo>
+                {
+                    new PlayerInfo("nick", 5),
+                    new PlayerInfo("nick", 6),
+                    new PlayerInfo("nick", 7),
+                    new PlayerInfo("nick", 8),
+                    new PlayerInfo("nick", 9)
+                };
 
-        //        string expected = GameConstants.ScoreBoardEmpty + Environment.NewLine;
-        //        Assert.AreEqual(sw.ToString(), expected, "Expected message for empty scoreboard");
-        //    }
-        //}
+                var line = new String(GameConstants.LineChar, GameConstants.CharsPerLine);
+                var scoreBoard = new StringBuilder(line + Environment.NewLine);
+                scoreBoard.AppendLine(GameConstants.ScoreBoardTitle);
+                scoreBoard.AppendLine(String.Format(GameConstants.ScoreBoardHeaderFormat,
+                    GameConstants.ScoreBoardGuessesLabel,
+                    GameConstants.ScoreBoardNameLabel));
+                scoreBoard.AppendLine(line);
+
+                var position = 1;
+                foreach (var player in this.Engine.ScoreBoard.TopPlayers)
+                {
+                    scoreBoard.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat,
+                                      position, player));
+                    position++;
+                }
+                scoreBoard.AppendLine(line);
+                var expected = scoreBoard + Environment.NewLine;
+             
+                this.Engine.OutputWriter.WriteOutput(this.Engine.ScoreBoard.ToString());
+                Assert.AreEqual(sw.ToString(), expected, "Expected message for empty scoreboard");
+            }
+        }
     }
 }

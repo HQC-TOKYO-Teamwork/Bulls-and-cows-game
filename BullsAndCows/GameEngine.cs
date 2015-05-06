@@ -45,7 +45,7 @@ namespace BullsAndCows
         {
             this.OutputWriter.WriteOutput(GameConstants.WelcomeMessage);
             this.Initialize();
-
+            
             while (!this.IsGuessed)
             {
                 Console.Write(GameConstants.EnterCommand);
@@ -63,7 +63,17 @@ namespace BullsAndCows
                 this.OutputWriter.WriteOutput(this.ScoreBoard.ToString());
             }
 
-            this.CreateNewGame();
+            this.Play();
+        }
+
+        public void Initialize()
+        {
+            this.guessesCount = 0;
+            this.CheatsCount = 0;
+            this.IsGuessed = false;
+            this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
+            this.NumberForGuess = this.GenerateNumberForGuess();
+            //this.Output = new StringBuilder();
         }
 
         protected virtual void ExecuteCommandLoop()
@@ -88,16 +98,6 @@ namespace BullsAndCows
             //this.OutputWriter.WriteOutput(this.Output.ToString());
         }
 
-        private void Initialize()
-        {
-            this.guessesCount = 0;
-            this.CheatsCount = 0;
-            this.IsGuessed = false;
-            this.helpingNumber = new char[] { 'X', 'X', 'X', 'X' };
-            this.NumberForGuess = this.GenerateNumberForGuess();
-            //this.Output = new StringBuilder();
-        }
-
         private string GenerateNumberForGuess()
         {
             StringBuilder digits = new StringBuilder();
@@ -107,13 +107,9 @@ namespace BullsAndCows
                 int digit = randomGenerator.Next(0, 10);
                 digits.Append(digit);
             }
+            digits = new StringBuilder("1234"); // for testing
             this.digitForReveal = digits.ToString().ToCharArray();
             return digits.ToString();
-        }
-
-        private void CreateNewGame()
-        {
-            Play();
         }
     }
 }

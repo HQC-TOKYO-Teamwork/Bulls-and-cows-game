@@ -22,8 +22,12 @@
                 " the secret number in {0} attempts.";
 
         public const string CheatMessageExtention = " attempts and {1} cheats.";
-        public const string ScoreBoardLineFormat = "  {0,7} | {1}";
+        public const string ScoreBoardHeaderFormat = "  {0,7} | {1}";
+        public const string ScoreBoardLineFormat = "{0}. {1}";
         public const string ScoreBoardNameLabel = "Name";
         public const string ScoreBoardGuessesLabel = "Guesses";
+
+        public const char LineChar = '-';
+        public const int CharsPerLine = 30;
     }
 }

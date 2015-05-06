@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BullsAndCows.Constants;
 
 namespace BullsAndCows.Commands
 {
@@ -14,7 +15,8 @@ namespace BullsAndCows.Commands
 
         public override void Execute()
         {
-            this.Engine.Play();
+            this.Engine.OutputWriter.WriteOutput(GameConstants.WelcomeMessage);
+            this.Engine.Initialize();
         }
     }
 }

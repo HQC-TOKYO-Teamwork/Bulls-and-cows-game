@@ -20,13 +20,14 @@ namespace BullsAndCows
 
         public List<PlayerInfo> TopPlayers { get; set; }
 
-        public string ToString()
+        public override string ToString()
         {
             if (this.TopPlayers.Count > 0)
             {
                 StringBuilder scoreBoardBuilder = new StringBuilder();
+                scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                 scoreBoardBuilder.AppendLine(GameConstants.ScoreBoardTitle);
-                scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel)); //todo
+                scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardHeaderFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel)); //todo
                 scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                 int currentPosition = 1;
 
@@ -34,9 +35,9 @@ namespace BullsAndCows
                 {
                     scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat,
                                       currentPosition, player));
-                    scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                     currentPosition++;
                 }
+                scoreBoardBuilder.AppendLine(CreateLine(CharsPerLine, LineChar));
                 return scoreBoardBuilder.ToString();
             }
             else

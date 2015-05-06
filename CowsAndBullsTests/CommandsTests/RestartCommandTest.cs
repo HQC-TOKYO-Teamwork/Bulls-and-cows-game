@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,20 +24,31 @@ namespace BullsAndCowsTest.CommandTests
             this.Engine = new GameEngine(new ConsoleReader(), new ConsoleWriter());
         }
 
-        //[TestMethod]
-        //public void TestExecuteRestartCommand()
-        //{
-        //    ICommand command = CommandFactory.Create("restart", this.Engine);
-        //    command.Execute();
+        [TestMethod]
+        public void TestExecuteRestartCommand()
+        {
+            ICommand command = CommandFactory.Create("restart", this.Engine);
+            command.Execute();
 
-        //    var isDefaultHelpingNumber = this.Engine.helpingNumber.Equals(new char[] {'X', 'X', 'X', 'X'});
-        //    var isDefaultGuessesCount = this.Engine.guessesCount.Equals(0);
-        //    var isDefaultCheatsCount = this.Engine.CheatsCount.Equals(0);
-        //    var isDefaultIsGuessed = this.Engine.IsGuessed.Equals(false);
-        //    var areDefaultValues = isDefaultHelpingNumber && isDefaultGuessesCount 
-        //        && isDefaultCheatsCount && isDefaultIsGuessed;
+            var isDefaultHelpingNumber = Enumerable.SequenceEqual(this.Engine.helpingNumber, new char[] { 'X', 'X', 'X', 'X' });
+            var isDefaultGuessesCount = this.Engine.guessesCount.Equals(0);
+            var isDefaultCheatsCount = this.Engine.CheatsCount.Equals(0);
+            var isDefaultIsGuessed = this.Engine.IsGuessed.Equals(false);
+            var isLegalNumber = CheckIfGuessNumberIsLegal(this.Engine.NumberForGuess);
+            var areDefaultValues = isDefaultHelpingNumber && isDefaultGuessesCount
+                && isDefaultCheatsCount && isDefaultIsGuessed && isLegalNumber;
 
-        //    Assert.IsTrue(areDefaultValues, "Expected the game vairiables to be with their default values");
-        //}
+            Assert.IsTrue(areDefaultValues, "Expected the game vairiables to be with their default values");
+        }
+
+        private bool CheckIfGuessNumberIsLegal(string number)
+        {
+            int n;        
+            if (number.Length == 4 && int.TryParse(number, out n))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
