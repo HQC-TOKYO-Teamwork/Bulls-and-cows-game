@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows;
-using BullsAndCows.Commands.Factories;
-using BullsAndCows.InputReaders;
-using BullsAndCows.OutputWriters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BullsAndCows.Interfaces;
-
-namespace BullsAndCowsTest.CommandTests
+﻿namespace CowsAndBullsTests.CommandsTests
 {
+    using System.Linq;
+    using BullsAndCows;
+    using BullsAndCows.Commands.Factories;
+    using BullsAndCows.InputReaders;
+    using BullsAndCows.OutputWriters;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using BullsAndCows.Interfaces;
+
     [TestClass]
     public class RestartCommandTest
     {

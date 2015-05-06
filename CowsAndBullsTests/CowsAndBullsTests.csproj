@@ -51,6 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CommandsTests\ExitCommandTest.cs" />
+    <Compile Include="CommandsTests\GuessCommandTest.cs" />
+    <Compile Include="CommandsTests\HelpCommandTest.cs" />
     <Compile Include="CommandsTests\RestartCommandTest.cs" />
     <Compile Include="CommandsTests\TestCommandFactory.cs" />
     <Compile Include="CommandsTests\TopCommandTest.cs" />

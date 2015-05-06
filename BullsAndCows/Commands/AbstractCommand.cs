@@ -4,10 +4,9 @@
 
     public abstract class AbstractCommand : ICommand
     {
-        public GameEngine Engine { get; private set; }
+        public IGameEngine Engine { get; private set; }
 
-        // GameEngine should be changed to IGameEngine
-        protected AbstractCommand(GameEngine engine)
+        protected AbstractCommand(IGameEngine engine)
         {
             this.Engine = engine;
         }

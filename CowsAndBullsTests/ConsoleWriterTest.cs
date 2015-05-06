@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows.Interfaces;
-using BullsAndCows.OutputWriters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BullsAndCowsTest
+﻿namespace CowsAndBullsTests
 {
+    using System;
+    using System.IO;
+    using BullsAndCows.Interfaces;
+    using BullsAndCows.OutputWriters;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class ConsoleWriterTest
     {

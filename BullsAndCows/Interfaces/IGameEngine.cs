@@ -8,6 +8,10 @@ namespace BullsAndCows.Interfaces
 {
     public interface IGameEngine
     {
+        char[] DigitForReveal { get; }
+
+        Random RandomGenerator { get; }
+
         char[] HelpingNumber { get; set; }
 
         int GuessesCount { get; set; }

@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows;
-using BullsAndCows.Commands;
-using BullsAndCows.Commands.Factories;
-using BullsAndCows.InputReaders;
-using BullsAndCows.Interfaces;
-using BullsAndCows.OutputWriters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BullsAndCowsTest.CommandTests
+﻿namespace CowsAndBullsTests.CommandsTests
 {
+    using System;
+    using BullsAndCows;
+    using BullsAndCows.Commands;
+    using BullsAndCows.Commands.Factories;
+    using BullsAndCows.InputReaders;
+    using BullsAndCows.Interfaces;
+    using BullsAndCows.OutputWriters;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class TestCommandFactory
     {

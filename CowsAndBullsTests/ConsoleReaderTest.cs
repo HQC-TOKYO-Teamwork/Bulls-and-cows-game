@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows.InputReaders;
-using BullsAndCows.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BullsAndCowsTest
+﻿namespace CowsAndBullsTests
 {
+    using System;
+    using System.IO;
+    using BullsAndCows.InputReaders;
+    using BullsAndCows.Interfaces;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class ConsoleReaderTest
     {

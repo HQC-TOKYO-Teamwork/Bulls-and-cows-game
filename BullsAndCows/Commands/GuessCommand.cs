@@ -1,23 +1,23 @@
 ﻿namespace BullsAndCows.Commands
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using Constants;
-    using Interfaces;
+    using BullsAndCows.Constants;
+    using BullsAndCows.Interfaces;
 
     public class GuessCommand : AbstractCommand
     {
-        public GuessCommand(GameEngine engine, string guess)
+        public GuessCommand(IGameEngine engine, string guess)
             : base(engine)
         {
-            this.GameEngine = engine;
             this.GuessString = guess;
             this.NumberForGuessAsString = engine.NumberForGuess;
             this.OutputWriter = engine.OutputWriter;
         }
 
-        public GameEngine GameEngine { get; set; }
+        public string BullsAndCowsOutPut { get; set; }
 
         private string GuessString { get; set; }
 
@@ -27,7 +27,7 @@
 
         public override void Execute()
         {
-            ++this.GameEngine.GuessesCount;
+            ++this.Engine.GuessesCount;
             this.ProcessGuessedNumber(this.GuessString, this.NumberForGuessAsString);
 
         }
@@ -36,9 +36,8 @@
         {
             if (this.GuessNumberIsForGuess(guess, answer))
             {
-                this.GameEngine.IsGuessed = true;
+                this.Engine.IsGuessed = true;
                 PrintCongratulationMessage();
-                // this.GameEngine.ScoreBoard.AddPlayerToScoreboard(this.GameEngine.GuessesCount);
             }
             else
             {
@@ -98,7 +97,8 @@
         {
             StringBuilder output = new StringBuilder();
             output.Append(String.Format(GameConstants.BullsAndCowsOutPut, bullsAndCows[0], bullsAndCows[1]));
-            this.OutputWriter.WriteOutput(output.ToString());
+            this.BullsAndCowsOutPut = output.ToString();
+            this.OutputWriter.WriteOutput(this.BullsAndCowsOutPut);
         }
 
         private void UpdateGuessString(int index)
@@ -112,15 +112,15 @@
         private void PrintCongratulationMessage()
         {
             StringBuilder output = new StringBuilder();
-            output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.GameEngine.GuessesCount));
+            output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.Engine.GuessesCount));
 
-            if (this.GameEngine.CheatsCount == 0)
+            if (this.Engine.CheatsCount == 0)
             {
                 this.OutputWriter.WriteOutput(output.ToString());
             }
             else
             {
-                output.AppendFormat(String.Format(Messages.CheatMessageExtention, this.GameEngine.GuessesCount, this.GameEngine.CheatsCount));
+                output.AppendFormat(Messages.CheatMessageExtention, this.Engine.GuessesCount, this.Engine.CheatsCount);
                 this.OutputWriter.WriteOutput(output.ToString());
             }
         }

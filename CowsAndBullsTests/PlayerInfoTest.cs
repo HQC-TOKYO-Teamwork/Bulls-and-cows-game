@@ -1,9 +1,10 @@
-﻿using System;
-using BullsAndCows.Constants;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BullsAndCowsTest
+﻿namespace CowsAndBullsTests
 {
+    using System;
+    using BullsAndCows;
+    using BullsAndCows.Constants;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class PlayerInfoTest
     {

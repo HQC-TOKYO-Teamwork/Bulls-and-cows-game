@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows;
-using BullsAndCows.Constants;
-using BullsAndCows.InputReaders;
-using BullsAndCows.Interfaces;
-using BullsAndCows.OutputWriters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace BullsAndCowsTest
+﻿namespace CowsAndBullsTests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using BullsAndCows;
+    using BullsAndCows.Constants;
+    using BullsAndCows.InputReaders;
+    using BullsAndCows.OutputWriters;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class ScoreBoardTest
     {
@@ -109,7 +106,7 @@ namespace BullsAndCowsTest
                 Console.SetOut(sw);
                 this.Engine.OutputWriter.WriteOutput(this.Engine.ScoreBoard.ToString());
 
-                string expected = GameConstants.ScoreBoardEmpty + Environment.NewLine;
+                string expected = Messages.ScoreBoardEmpty + Environment.NewLine;
                 Assert.AreEqual(sw.ToString(), expected, "Expected message for empty scoreboard");
             }
         }

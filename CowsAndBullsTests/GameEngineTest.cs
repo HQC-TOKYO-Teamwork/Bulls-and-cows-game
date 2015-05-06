@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BullsAndCows;
-using BullsAndCows.InputReaders;
-using BullsAndCows.OutputWriters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace CowsAndBullsTests
+﻿namespace CowsAndBullsTests
 {
+    using BullsAndCows;
+    using BullsAndCows.InputReaders;
+    using BullsAndCows.OutputWriters;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class GameEngineTest
     {

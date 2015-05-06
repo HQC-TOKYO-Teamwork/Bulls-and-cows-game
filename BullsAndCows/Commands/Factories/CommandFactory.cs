@@ -13,7 +13,7 @@
         private const string GuessPattern = GameConstants.GuessPattern;
 
         // Should be changed to IGameEngine
-        public static ICommand Create(string commandInput, GameEngine engine)
+        public static ICommand Create(string commandInput, IGameEngine engine)
         {
             Regex guessPattern = new Regex(GuessPattern);
             if (guessPattern.IsMatch(commandInput) && commandInput.Length == 4)
