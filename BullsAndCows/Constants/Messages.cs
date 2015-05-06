@@ -16,6 +16,7 @@
         public const string ScoreBoardEmpty = "Scoreboard is empty!";
         public const string WinnerMessageWithOutCheats = "Congratulations! You guessed" +
                 " the secret number in {0} attempts.";
-        public const string CheatMessageExtention = "{0} attempts and {1} cheats.";
+        public const string WinnerMessageWithCheats = "Congratulations! You guessed" +
+                " the secret number in {0} attempts and {1} cheats.";
     }
 }
