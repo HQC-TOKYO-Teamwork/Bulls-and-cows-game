@@ -49,6 +49,7 @@
 
         public void TestHelpCommandWithThreeInvokes()
         {
+            this.Engine.CheatsCount = 8;
             this.Engine.Initialize();
             for (int i = 0; i < 3; i++)
             {
