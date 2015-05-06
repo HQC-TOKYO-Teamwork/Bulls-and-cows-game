@@ -9,17 +9,16 @@ namespace BullsAndCows.InputReaders
     public class ArrayReader : IInputReader
     {
         private static int position = 0;
+        private IList<string> commands;
 
-        public ArrayReader()
+        public ArrayReader(IList<string> commands)
         {
-            this.Commands = new List<string>();
+            this.commands = commands;
         }
-
-        public List<string> Commands { get; set; }
 
         public string ReadInput()
         {
-            string command = this.Commands[position];
+            string command = this.commands[position];
             position++;
             return command;
         }

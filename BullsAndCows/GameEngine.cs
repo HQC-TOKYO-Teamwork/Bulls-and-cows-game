@@ -37,9 +37,9 @@ namespace BullsAndCows
 
         //public StringBuilder Output { get; private set; }
 
-        public IInputReader InputReader { get; private set; }
+        public IInputReader InputReader { get; set; }
 
-        public IOutputWriter OutputWriter { get; private set; }
+        public IOutputWriter OutputWriter { get; set; }
 
         public void Play()
         {
