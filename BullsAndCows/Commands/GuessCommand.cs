@@ -29,7 +29,6 @@
         {
             ++this.Engine.GuessesCount;
             this.ProcessGuessedNumber(this.GuessString, this.NumberForGuessAsString);
-
         }
 
         private void ProcessGuessedNumber(string guess, string answer)
@@ -37,7 +36,7 @@
             if (this.GuessNumberIsForGuess(guess, answer))
             {
                 this.Engine.IsGuessed = true;
-                PrintCongratulationMessage();
+                this.PrintCongratulationMessage();
             }
             else
             {
@@ -96,7 +95,7 @@
         private void PrintBullsAndCows(string[] bullsAndCows)
         {
             StringBuilder output = new StringBuilder();
-            output.Append(String.Format(GameConstants.BullsAndCowsOutPut, bullsAndCows[0], bullsAndCows[1]));
+            output.Append(string.Format(GameConstants.BullsAndCowsOutPut, bullsAndCows[0], bullsAndCows[1]));
             this.BullsAndCowsOutPut = output.ToString();
             this.OutputWriter.WriteOutput(this.BullsAndCowsOutPut);
         }
@@ -113,10 +112,9 @@
         {
             StringBuilder output = new StringBuilder();
             
-
             if (this.Engine.CheatsCount == 0)
             {
-                output.AppendFormat(String.Format(Messages.WinnerMessageWithOutCheats, this.Engine.GuessesCount));
+                output.AppendFormat(string.Format(Messages.WinnerMessageWithOutCheats, this.Engine.GuessesCount));
                 this.OutputWriter.WriteOutput(output.ToString());
             }
             else
