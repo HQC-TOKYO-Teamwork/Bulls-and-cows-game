@@ -1,10 +1,11 @@
 ﻿namespace BullsAndCows.Commands
 {
     using Constants;
+    using Interfaces;
 
     public class RestartCommand : AbstractCommand
     {
-        public RestartCommand(GameEngine engine)
+        public RestartCommand(IGameEngine engine)
             :base(engine)
         {
         }

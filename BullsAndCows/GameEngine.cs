@@ -7,7 +7,7 @@ namespace BullsAndCows
     using Interfaces;
     using Constants;
 
-    public class GameEngine
+    public class GameEngine : IGameEngine
     {        
         internal char[] digitForReveal;
         internal Random randomGenerator;

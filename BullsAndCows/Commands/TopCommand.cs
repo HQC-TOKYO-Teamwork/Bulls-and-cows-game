@@ -1,8 +1,10 @@
 ﻿namespace BullsAndCows.Commands
 {
+    using Interfaces;
+
     public class TopCommand : AbstractCommand
     {
-        public TopCommand(GameEngine engine)
+        public TopCommand(IGameEngine engine)
             :base(engine)
         {
         }

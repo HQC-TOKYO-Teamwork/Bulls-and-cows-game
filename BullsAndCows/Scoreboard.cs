@@ -4,12 +4,13 @@
     using System.Collections.Generic;
     using System.Text;
     using Constants;
+    using Interfaces;
 
     public class Scoreboard
     {
-        private readonly GameEngine engine;
+        private readonly IGameEngine engine;
 
-        public Scoreboard(GameEngine engine)
+        public Scoreboard(IGameEngine engine)
         {
             this.engine = engine;
             this.TopPlayers = new List<PlayerInfo>();

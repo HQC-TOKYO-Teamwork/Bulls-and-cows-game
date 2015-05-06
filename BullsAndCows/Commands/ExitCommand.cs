@@ -2,10 +2,11 @@
 {
     using System;
     using Constants;
+    using Interfaces;
 
     public class ExitCommand : AbstractCommand
     {
-        public ExitCommand(GameEngine engine)
+        public ExitCommand(IGameEngine engine)
             : base(engine)
         {
         }
