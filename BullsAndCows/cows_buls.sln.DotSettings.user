@@ -31,6 +31,10 @@
 	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=757DA574613D466284005B6A62556A8F/GroupingIndex/@EntryValue">4</s:Int64>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=757DA574613D466284005B6A62556A8F/Name/@EntryValue">All tests from BullsAndCowsGameTests</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=757DA574613D466284005B6A62556A8F/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="BullsAndCowsTest.ConsoleReaderTest" Project="76173D49-9CB3-45F5-B2D4-51DB12BE67BB" Provider="MSTest" /&gt;&lt;e Id="BullsAndCowsTest.ConsoleReaderTest.TestReadInput" Project="76173D49-9CB3-45F5-B2D4-51DB12BE67BB" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
+	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=84D450F5576E4067836B437224760C1F/@KeyIndexDefined">True</s:Boolean>
+	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=84D450F5576E4067836B437224760C1F/GroupingIndex/@EntryValue">4</s:Int64>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=84D450F5576E4067836B437224760C1F/Name/@EntryValue">TestPrintFullScoreBoard</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=84D450F5576E4067836B437224760C1F/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="CowsAndBullsTests.ScoreBoardTest.TestPrintFullScoreBoard" Project="BE8A6331-6C9D-4913-92CB-56E52C554426" Provider="MSTest" /&gt;&lt;e Id="CowsAndBullsTests.ScoreBoardTest" Project="BE8A6331-6C9D-4913-92CB-56E52C554426" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
 	
 	
 	

@@ -4,10 +4,10 @@
     using BullsAndCows;
     using BullsAndCows.Commands.Factories;
     using BullsAndCows.InputReaders;
+    using BullsAndCows.Interfaces;
     using BullsAndCows.OutputWriters;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BullsAndCows.Interfaces;
-
+   
     [TestClass]
     public class RestartCommandTest
     {
@@ -29,7 +29,7 @@
             var isDefaultGuessesCount = this.Engine.GuessesCount.Equals(0);
             var isDefaultCheatsCount = this.Engine.CheatsCount.Equals(0);
             var isDefaultIsGuessed = this.Engine.IsGuessed.Equals(false);
-            var isLegalNumber = CheckIfGuessNumberIsLegal(this.Engine.NumberForGuess);
+            var isLegalNumber = this.CheckIfGuessNumberIsLegal(this.Engine.NumberForGuess);
             var areDefaultValues = isDefaultHelpingNumber && isDefaultGuessesCount
                 && isDefaultCheatsCount && isDefaultIsGuessed && isLegalNumber;
 
@@ -43,6 +43,7 @@
             {
                 return true;
             }
+
             return false;
         }
     }

@@ -28,7 +28,6 @@
 
         private void PrintHelpingNumber()
         {
-
             this.Engine.OutputWriter.WriteOutput(string.Join(string.Empty, this.Engine.HelpingNumber));
         }
 

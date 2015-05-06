@@ -5,7 +5,7 @@
     public class TopCommand : AbstractCommand
     {
         public TopCommand(IGameEngine engine)
-            :base(engine)
+            : base(engine)
         {
         }
 

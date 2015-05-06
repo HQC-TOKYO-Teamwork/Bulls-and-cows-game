@@ -6,7 +6,7 @@
     public class RestartCommand : AbstractCommand
     {
         public RestartCommand(IGameEngine engine)
-            :base(engine)
+            : base(engine)
         {
         }
 

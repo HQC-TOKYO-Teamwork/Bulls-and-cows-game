@@ -4,12 +4,12 @@
 
     public abstract class AbstractCommand : ICommand
     {
-        public IGameEngine Engine { get; private set; }
-
         protected AbstractCommand(IGameEngine engine)
         {
             this.Engine = engine;
         }
+
+        public IGameEngine Engine { get; private set; }
 
         public abstract void Execute();
     }

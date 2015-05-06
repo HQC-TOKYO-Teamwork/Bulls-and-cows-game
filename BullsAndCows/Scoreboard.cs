@@ -25,16 +25,19 @@
                 StringBuilder scoreBoardBuilder = new StringBuilder();
                 scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 scoreBoardBuilder.AppendLine(GameConstants.ScoreBoardTitle);
-                scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardHeaderFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel)); //todo
+                scoreBoardBuilder.AppendLine(string.Format(GameConstants.ScoreBoardHeaderFormat, GameConstants.ScoreBoardGuessesLabel, GameConstants.ScoreBoardNameLabel));
                 scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 int currentPosition = 1;
 
                 foreach (var player in this.TopPlayers)
                 {
-                    scoreBoardBuilder.AppendLine(String.Format(GameConstants.ScoreBoardLineFormat,
-                                      currentPosition, player));
+                    scoreBoardBuilder.AppendLine(string.Format(
+                        GameConstants.ScoreBoardLineFormat,
+                        currentPosition,
+                        player));
                     currentPosition++;
                 }
+
                 scoreBoardBuilder.AppendLine(CreateLine(GameConstants.CharsPerLine, GameConstants.LineChar));
                 return scoreBoardBuilder.ToString();
             }
@@ -55,16 +58,17 @@
                 this.TopPlayers.RemoveAt(4);
                 this.TopPlayers.Add(player);
             }
+
             this.TopPlayers.Sort();
         }
 
         public PlayerInfo GetPlayerInfo(int guesses)
         {
             this.engine.OutputWriter.WriteOutput(Messages.AllowedToEnterScoreboard);
-            string playerNick = String.Empty;
+            string playerNick = string.Empty;
             PlayerInfo newPlayer = null;
 
-            while (String.IsNullOrWhiteSpace(playerNick))
+            while (string.IsNullOrWhiteSpace(playerNick))
             {
                 try
                 {
@@ -81,12 +85,13 @@
                     this.engine.OutputWriter.WriteOutput(e.Message);
                 }
             }
+
             return newPlayer;
         }
 
         private static string CreateLine(int charCount, char ch)
         {
-            return new String(ch, charCount);
+            return new string(ch, charCount);
         }
     }
 }

@@ -4,8 +4,8 @@ namespace BullsAndCows
     using System.Text;
     using Commands.Exceptions;
     using Commands.Factories;
-    using Interfaces;
     using Constants;
+    using Interfaces;
 
     public class GameEngine : IGameEngine
     {
@@ -41,7 +41,7 @@ namespace BullsAndCows
         {
             this.OutputWriter.WriteOutput(Messages.WelcomeMessage);
             this.Initialize();
-            
+
             while (!this.IsGuessed)
             {
                 Console.Write(Messages.EnterCommand);
@@ -84,7 +84,7 @@ namespace BullsAndCows
             {
                 this.OutputWriter.WriteOutput(ex.Message);
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 this.OutputWriter.WriteOutput(ExceptionConstants.InvalidOperation);
             }
@@ -96,9 +96,10 @@ namespace BullsAndCows
 
             for (int i = 0; i < 4; i++)
             {
-                int digit = RandomGenerator.Next(0, 10);
+                int digit = this.RandomGenerator.Next(0, 10);
                 digits.Append(digit);
             }
+
             this.DigitForReveal = digits.ToString().ToCharArray();
             return digits.ToString();
         }

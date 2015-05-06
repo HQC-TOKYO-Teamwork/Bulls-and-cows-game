@@ -50,7 +50,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CommandsTests\ExitCommandTest.cs" />
     <Compile Include="CommandsTests\GuessCommandTest.cs" />
     <Compile Include="CommandsTests\HelpCommandTest.cs" />
     <Compile Include="CommandsTests\RestartCommandTest.cs" />
@@ -58,15 +57,14 @@
     <Compile Include="CommandsTests\TopCommandTest.cs" />
     <Compile Include="ConsoleReaderTest.cs" />
     <Compile Include="ConsoleWriterTest.cs" />
-    <Compile Include="GameEngineTest.cs" />
     <Compile Include="PlayerInfoTest.cs" />
     <Compile Include="ScoreBoardTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BullsAndCows\cows_buls.csproj">
+    <ProjectReference Include="..\BullsAndCows\BullsAndCowsGame.csproj">
       <Project>{469d9cb0-ead5-4181-b120-2d0bc5622bf9}</Project>
-      <Name>cows_buls</Name>
+      <Name>BullsAndCowsGame</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

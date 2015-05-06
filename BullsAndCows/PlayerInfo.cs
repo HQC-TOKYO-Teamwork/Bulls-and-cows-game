@@ -16,26 +16,36 @@
 
         public string NickName
         {
-            get { return this.nickName; }
+            get
+            {
+                return this.nickName;
+            }
+
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException(ExceptionConstants.NickNameTooShort);
                 }
+
                 this.nickName = value;
             }
         }
 
         public int Guesses
         {
-            get { return this.guesses; }
+            get
+            {
+                return this.guesses;
+            }
+
             set
             {
                 if (value <= 0)
                 {
                     throw new ArgumentOutOfRangeException(ExceptionConstants.InvalidGuesses);
                 }
+
                 this.guesses = value;
             }
         }
@@ -54,7 +64,7 @@
 
         public override string ToString()
         {
-            string result = String.Format(GameConstants.PlayerInfo, Guesses, NickName);
+            string result = string.Format(GameConstants.PlayerInfo, this.Guesses, this.NickName);
             return result;
         }
     }

@@ -4,8 +4,8 @@
     using System.Linq;
     using System.Reflection;
     using System.Text.RegularExpressions;
-    using Interfaces;
     using Constants;
+    using Interfaces;
 
     public class CommandFactory
     {

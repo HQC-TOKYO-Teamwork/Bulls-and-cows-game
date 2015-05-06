@@ -5,9 +5,9 @@
     using BullsAndCows;
     using BullsAndCows.Commands.Factories;
     using BullsAndCows.InputReaders;
+    using BullsAndCows.Interfaces;
     using BullsAndCows.OutputWriters;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using BullsAndCows.Interfaces;
 
     [TestClass]
     public class TopCommandTest
