@@ -71,7 +71,7 @@ namespace BullsAndCows
             this.NumberForGuess = this.GenerateNumberForGuess();
         }
 
-        protected virtual void ExecuteCommandLoop()
+        private void ExecuteCommandLoop()
         {
             var inputCommand = this.InputReader.ReadInput();
 
@@ -99,7 +99,6 @@ namespace BullsAndCows
                 int digit = RandomGenerator.Next(0, 10);
                 digits.Append(digit);
             }
-            digits = new StringBuilder("1234"); // for testing
             this.DigitForReveal = digits.ToString().ToCharArray();
             return digits.ToString();
         }

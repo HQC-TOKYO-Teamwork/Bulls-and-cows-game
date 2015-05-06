@@ -55,11 +55,13 @@
     <Compile Include="BullsAndCowsStart.cs" />
     <Compile Include="Constants\Messages.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="InputReaders\ArrayReader.cs" />
     <Compile Include="InputReaders\ConsoleReader.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IGameEngine.cs" />
     <Compile Include="Interfaces\IInputReader.cs" />
     <Compile Include="Interfaces\IOutputWriter.cs" />
+    <Compile Include="OutputWriters\ArrayWriter.cs" />
     <Compile Include="OutputWriters\ConsoleWriter.cs" />
     <Compile Include="PlayerInfo.cs" />
     <Compile Include="Scoreboard.cs" />
