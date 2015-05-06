@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace CowsAndBullsTests.CommandsTests
+﻿namespace CowsAndBullsTests.CommandsTests
 {
     using BullsAndCows;
     using BullsAndCows.Commands;

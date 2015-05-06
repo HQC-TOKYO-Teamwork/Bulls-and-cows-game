@@ -26,7 +26,7 @@
         {
             this.Engine.Initialize();
             this.HelpCommand.Execute();
-            string helpingNumber = string.Join("", this.Engine.HelpingNumber);
+            string helpingNumber = string.Join(string.Empty, this.Engine.HelpingNumber);
             var regex = new Regex(@"\d");
             var matches = regex.Matches(helpingNumber);
             Assert.AreEqual(1, matches.Count);
@@ -41,7 +41,7 @@
                 this.HelpCommand.Execute();
             }
 
-            string helpingNumber = string.Join("", this.Engine.HelpingNumber);
+            string helpingNumber = string.Join(string.Empty, this.Engine.HelpingNumber);
             var regex = new Regex(@"\d");
             var matches = regex.Matches(helpingNumber);
             Assert.AreEqual(2, matches.Count);
@@ -56,7 +56,7 @@
                 this.HelpCommand.Execute();
             }
 
-            string helpingNumber = string.Join("", this.Engine.HelpingNumber);
+            string helpingNumber = string.Join(string.Empty, this.Engine.HelpingNumber);
             var regex = new Regex(@"\d");
             var matches = regex.Matches(helpingNumber);
             Assert.AreEqual(3, matches.Count);
@@ -70,7 +70,7 @@
                 this.HelpCommand.Execute();
             }
 
-            string helpingNumber = string.Join("", this.Engine.HelpingNumber);
+            string helpingNumber = string.Join(string.Empty, this.Engine.HelpingNumber);
             var regex = new Regex(@"\d");
             var matches = regex.Matches(helpingNumber);
             Assert.AreEqual(4, matches.Count);
@@ -84,7 +84,7 @@
                 this.HelpCommand.Execute();
             }
 
-            string helpingNumber = string.Join("", this.Engine.HelpingNumber);
+            string helpingNumber = string.Join(string.Empty, this.Engine.HelpingNumber);
             var regex = new Regex(@"\d");
             var matches = regex.Matches(helpingNumber);
             Assert.AreEqual(4, matches.Count);
